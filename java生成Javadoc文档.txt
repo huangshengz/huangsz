@@ -1,0 +1,3 @@
+eclipse --> project --> Generate Javadoc -->
+
+-encoding utf-8 -charset utf-8  放在最后一步VM option(prefixed '-J'.e.g)的下面

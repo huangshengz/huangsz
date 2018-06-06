@@ -1,0 +1,38 @@
+注册	  本地	     通过      静态初始化
+register the natives via the static initializer.
+
+        调用，借助										分离
+VM will invoke the initializeSystemClass method to complete the initialization for this class separated from clinit.
+                 属性                               描述约束                    
+Note that to use properties set by the VM, see the constraintsdescribed in the initializeSystemClass method.
+
+                  实例化
+Don't let anyone instantiate this class
+
+
+各种各样的  状态
+Various    states of this socket.
+
+
+bound 范围   proxy 代理服务器
+
+            代表，表示		        通常
+This class represents a proxy setting, typically a type (http, socks) and a socket address
+
+
+                      不可改变的
+A {@code Proxy} is an immutable  object
+
+
+      例如                             绕过 
+Used, for instance, to create sockets bypassing any other global
+     proxy settings (like SOCKS):
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,87 @@
+1.java编程思想
+2.重构，改善既有代码的设计
+3.代码大全
+4.编程珠玑
+5.spring实战
+6.springboot实战
+7.hibernate实战第二版
+8.系统分析与设计方法
+9.设计模式
+10.需求分析与系统设计
+11.面向对象分析与设计
+12.UML用户指南
+13.算法导论
+14.数据库调优，缓存框架，nosql数据库，日志框架
+
+
+
+1.java编程思想
+2.重构，改善既有代码的设计
+3.代码大全
+4.编程珠玑
+5.spring实战
+6.springboot实战，springcloud实战
+7.hibernate实战第二版
+8.系统分析与设计方法
+9.设计模式
+10.需求分析与系统设计
+11.面向对象分析与设计
+12.UML用户指南
+13.算法导论
+14.数据库调优，缓存框架，nosql数据库，日志框架
+15.养生
+16.如何有效避免颈椎病，腰椎病
+17.如何预防秃顶
+18.秃顶如何治疗
+19.前列腺如何治疗
+20.胃药大全
+21.卒
+
+<select id="queryActivityList" resultMap="queryActivityListInfo">
+  	select a.*,
+  	CASE 
+	WHEN SYSDATE() &lt; activity_start_time and activity_status=1  THEN 0
+	WHEN SYSDATE() between activity_start_time and activity_end_time and activity_status = 1 THEN 1
+	WHEN activity_status=2 THEN 2
+	WHEN SYSDATE() &gt; activity_end_time  THEN 3
+	ELSE NULL END 
+	as a_status 
+  	,b.name ,b.good_id
+  	from activity a LEFT JOIN goods b on a.activity_goods_id = b.good_id 
+  	where a.activity_is_delete = 0
+  	<if test="activityName != null and activityName != '' ">
+  		and a.activity_name like '%${activityName}%'
+  	</if>
+  	<if test="goodsName != null and goodsName != '' ">
+  		and b.name like '%${goodsName}%'
+  	</if>
+  	<if test="goodsId != null ">
+  		and a.activity_goods_id = #{goodsId}
+  	</if>
+  	<!-- 0：未开始 -->
+  	<if test="activityStatus == 0 ">
+  		and SYSDATE() &lt; a.activity_start_time and a.activity_status = 1
+  	</if>
+  	<!-- 1：活动中 -->
+  	<if test="activityStatus == 1 ">
+  		and SYSDATE() between a.activity_start_time and a.activity_end_time and activity_status = 1
+  	</if>
+  	<!-- 2：暂停中 -->
+  	<if test="activityStatus == 2 ">
+  		and a.activity_status = 2
+  	</if>
+  	<!-- 3：已结束 -->
+  	<if test="activityStatus == 3 ">
+  		and SYSDATE() &gt; a.activity_end_time
+  	</if>
+  	limit #{pageNum},#{pageSize}
+  </select>
+
+
+	CASE 
+	WHEN SYSDATE() &lt; fs_start_time  and fs_status = 1  THEN 0
+	WHEN SYSDATE() between fs_start_time and fs_end_time and fs_status = 1 THEN 1
+	WHEN fs_status=2 THEN 2
+	WHEN SYSDATE() &gt; fs_end_time  THEN 3
+	ELSE NULL END 
+	as a_status 
