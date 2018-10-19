@@ -1,0 +1,39 @@
+git安装
+GitHub Desktop
+https://desktop.github.com/
+
+配置工具
+对所有本地仓库的用户信息进行配置
+$ git config --global user.name "[name]" # 对你的commit操作设置关联的用户名
+$ git config --global user.email "[email address]" # 对你的commit操作设置关联的邮箱地址
+
+获取一个ssh公钥和密钥
+先看一下你C盘用户目录下有没有.ssh目录，有的话看下里面有没有id_rsa和id_rsa.pub这两个文件
+密钥有的话，在git上面输入：
+ssh-keygen -t rsa
+然后cat ~/.ssh/id_rsa.pub查看公钥
+
+上传文件到github
+
+首先得把公钥放到github上面去
+打开github的设置，找到SSH and GPG keys，点开New SSH key，Title任意填一个名字，key里面把公钥粘贴进去，然后点击And SSH key
+
+1. window本地D盘或者EFGH哪个盘创建一个文件夹
+2. 右键这个文件夹打开git bash here
+3. 打开后输入git init，创建了一个本地仓库
+4. 这时候我们就需要远程连接github的仓库了，打开github，复制需要的仓库地址
+5. 回到git，建立远程连接：git remote add origin github上的仓库地址
+6. 这时候git就已经连接上了远程仓库了，然后就可以提交文件信息了
+7. git status  #查看当前状态，看看是否有需要提交的内容
+7. git add .   #提交所有新的内容
+8. git commit -m "这个是注释啦啦"
+9. git pull origin dev # 提交之前，习惯性的也下载
+10. git push origin dev # 提交
+
+git branch # 查看当前git分之
+git branch dev # 创建一个名为dev的分之
+git checkout dev # 切换到dev分之
+
+git log 查看提交的记录，其中有commit id
+git reset commitid 就算撤销提交
+it reset --hard [commitid] 放弃所有更改并回到某个特定的commit
