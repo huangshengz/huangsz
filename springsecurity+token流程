@@ -1,0 +1,3 @@
+1、 url访问不带token，会跳转到自定义的token验证类（继承BasicAuthenticationFilter）里，然后跳转到实现FilterInvocationSecurityMetadataSource
+接口的类，Collection<ConfigAttribute> getAttributes(Object o)方法会判断当前url是否被拦截，没有拦截就直接放开可以访问资源。如果拦截了，则会走到
+实现AccessDecisionManager接口的类里的decide方法，此方法会判断当前访问角色权限。通过则方向，反之拦截。
