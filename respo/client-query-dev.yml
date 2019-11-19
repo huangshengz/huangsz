@@ -23,3 +23,7 @@ my:
 #     web:
 #       exposure:
 #         include: "*"
+
+logging:
+    level:
+        com.jbf.dao: DEBUG
