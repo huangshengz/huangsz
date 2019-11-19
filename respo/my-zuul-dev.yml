@@ -1,8 +1,8 @@
 zuul:
   routes:
-    api-a:
+    query:
       path: /query/**
       serviceId: flight-api
-    api-b:
+    add:
       path: /add/**
       serviceId: client-query
