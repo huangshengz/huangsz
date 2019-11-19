@@ -4,11 +4,11 @@ spring:
     username: root
     password: 123qwe
     driver-class-name: com.mysql.cj.jdbc.Driver
-  rabbitmq:
-    host: 127.0.0.1
-    port: 5762
-    username: suyun
-    password: suyun
+#   rabbitmq:
+#     host: 127.0.0.1
+#     port: 5762
+#     username: suyun
+#     password: suyun
 mybatis:
   type-aliases-package: com.jbf.entity
   mapper-locations: classpath:mapper/*.xml
@@ -18,8 +18,8 @@ mybatis:
 my:
   app-id: is this your coat?yes,it is.Thanks!
 # 关闭验证，暴露端点
-management:
-  endpoints:
-    web:
-      exposure:
-        include: "*"
+# management:
+#   endpoints:
+#     web:
+#       exposure:
+#         include: "*"
