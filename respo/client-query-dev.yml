@@ -16,7 +16,7 @@ mybatis:
     #开启驼峰命名转换
     map-underscore-to-camel-case: true
 my:
-  app-id: is this your coat?yes,it is.Thanks!
+  app-id: is this your coat?yes,it is.
 # 关闭验证，暴露端点
 management:
   endpoints:
