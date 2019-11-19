@@ -11,4 +11,4 @@ mybatis:
     #开启驼峰命名转换
     map-underscore-to-camel-case: true
 my:
-  app-id: is this your coat?
+  app-id: is this your coat?yes,it is.
